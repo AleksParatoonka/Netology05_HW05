@@ -205,33 +205,64 @@ public:
 class Square_Triangle :public Triangle {
 public:
     Square_Triangle(double edge_a, double edge_b, double edge_c, double angle_a, double angle_b) :Triangle(edge_a, edge_b, edge_c, angle_a, angle_b, 90, "Прямоугольный треугольник") {}
+	bool is_shape_ideal() override {
+	
+		bool result = Triangle::is_shape_ideal(); // Проверим треугольник
+		return result;		
+	}
 };
 class Isosceles_Triangle :public Triangle {
 public:
     Isosceles_Triangle(double edge_a, double edge_b, double angle_a, double angle_b) :Triangle(edge_a, edge_b, edge_a, angle_a, angle_b, angle_a, "Равнобедренный треугольник") {}
+	bool is_shape_ideal() override {
+	
+		bool result = Triangle::is_shape_ideal(); // Проверим треугольник
+		return result;		
+	}
 };
 class Equilateral_Triangle :public Triangle {
 public:
     Equilateral_Triangle(double edge_a) :Triangle(edge_a, edge_a, edge_a, 60, 60, 60, "Равносторонний треугольник") {}
+	bool is_shape_ideal() override {
+	
+		bool result = Triangle::is_shape_ideal(); // Проверим треугольник
+		return result;		
+	}
 };
 
 class Parallelogram :public Poly {
 public:
     Parallelogram(double edge_a, double edge_b, double angle_a, double angle_b) :Poly(edge_a, edge_b, edge_a, edge_b, angle_a, angle_b, angle_a, angle_b, "Параллелограмм") {}
     Parallelogram(double edge_a, double edge_b, double angle_a, double angle_b, std::string name) :Poly(edge_a, edge_b, edge_a, edge_b, angle_a, angle_b, angle_a, angle_b, name) {}
+	bool is_shape_ideal() override {
+		bool result = Poly::is_shape_ideal(); // Проверим четырехугольник
+		return result;		
+	}
 };
 class Rect :public Parallelogram {
 public:
     Rect(double edge_a, double edge_b) :Parallelogram(edge_a, edge_b, 90, 90, "Прямоугольник") {}
     Rect(double edge_a, double edge_b, std::string name) :Parallelogram(edge_a, edge_b, 90, 90, name) {}
+	bool is_shape_ideal() override {
+		bool result = Poly::is_shape_ideal(); // Проверим четырехугольник
+		return result;		
+	}
 };
 class Square :public Rect {
 public:
     Square(double edge_a) :Rect(edge_a, edge_a, "Квадрат") {}
+	bool is_shape_ideal() override {
+		bool result = Poly::is_shape_ideal(); // Проверим четырехугольник
+		return result;		
+	}
 };
 class Rhombus :public Parallelogram {
 public:
     Rhombus(double edge_a, double angle_a, double angle_b) :Parallelogram(edge_a, edge_a, angle_a, angle_b, "Ромб") {}
+	bool is_shape_ideal() override {
+		bool result = Poly::is_shape_ideal(); // Проверим четырехугольник
+		return result;		
+	}
 };
 
 
@@ -271,11 +302,11 @@ int main()
 
     poly.print_about();
     std::cout << std::endl;
-    parallelogram.print_about();
+	rectangle.print_about();
     std::cout << std::endl;
     square.print_about();
     std::cout << std::endl;
-    poly.print_about();
+    parallelogram.print_about();
     std::cout << std::endl;
     rhombus.print_about();
     std::cout << std::endl;
