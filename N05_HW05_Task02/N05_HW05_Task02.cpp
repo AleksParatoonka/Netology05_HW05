@@ -53,6 +53,11 @@ public:
             return angle_d;
         }
     }
+    void print_info() {
+        std::cout << "Стороны: a=" << get_edge('a') << " b=" << get_edge('b') << " c=" << get_edge('c') << " d=" << get_edge('d') << std::endl;
+        std::cout << "Углы: A=" << get_angle('a') << " B=" << get_angle('b') << " C=" << get_angle('c') << " D=" << get_angle('d') << std::endl;
+        std::cout << std::endl;
+    }
 protected:
     double edge_a;
     double edge_b;
@@ -108,6 +113,11 @@ public:
             return angle_c;
         }
     }
+    void print_info() {
+        std::cout << "Стороны: a=" << get_edge('a') << " b=" << get_edge('b') << " c=" << get_edge('c') << std::endl;
+        std::cout << "Углы: A=" << get_angle('a') << " B=" << get_angle('b') << " C=" << get_angle('c') << std::endl;
+        std::cout << std::endl;
+    }
 };
 class Square_Triangle :public Triangle {
 public:
@@ -142,8 +152,6 @@ public:
 
 int main()
 {
-    //SetConsoleCP(CP_UTF8);
-    //SetConsoleOutputCP(CP_UTF8);
     setlocale(LC_ALL, "Russian");
 
     //Shape shape;
@@ -159,47 +167,65 @@ int main()
     Equilateral_Triangle equilateral_triangle(30);
 
     std::cout << "Треугольник: " << std::endl;
-    std::cout << "Стороны: a=: " << triangle.get_edge('a') << " b=" << triangle.get_edge('b') << " c=" << triangle.get_edge('c') << std::endl;
+    Triangle* par_triangle = &triangle;
+    par_triangle->print_info();
+    /*std::cout << "Стороны: a=: " << triangle.get_edge('a') << " b=" << triangle.get_edge('b') << " c=" << triangle.get_edge('c') << std::endl;
     std::cout << "Углы: A=" << triangle.get_angle('a') << " B=" << triangle.get_angle('b') << " C=" << triangle.get_angle('c') << std::endl;
-    std::cout << std::endl;
+    std::cout << std::endl;*/
 
     std::cout << "Прямоугольный треугольник: " << std::endl;
-    std::cout << "Стороны: a=" << square_triangle.get_edge('a') << " b=" << square_triangle.get_edge('b') << " c=" << square_triangle.get_edge('c') << std::endl;
+    Triangle* par_square_triangle = &square_triangle;
+    par_square_triangle->print_info();
+    /*std::cout << "Стороны: a=" << square_triangle.get_edge('a') << " b=" << square_triangle.get_edge('b') << " c=" << square_triangle.get_edge('c') << std::endl;
     std::cout << "Углы: A=" << square_triangle.get_angle('a') << " B=" << square_triangle.get_angle('b') << " C=" << square_triangle.get_angle('c') << std::endl;
-    std::cout << std::endl;
+    std::cout << std::endl;*/
 
     std::cout << "Равнобедренный треугольник: " << std::endl;
-    std::cout << "Стороны: a=" << square_triangle.get_edge('a') << " b=" << square_triangle.get_edge('b') << " c=" << square_triangle.get_edge('c') << std::endl;
+    Triangle* par_isosceles_triangle = &isosceles_triangle;
+    par_isosceles_triangle->print_info();
+    /*std::cout << "Стороны: a=" << square_triangle.get_edge('a') << " b=" << square_triangle.get_edge('b') << " c=" << square_triangle.get_edge('c') << std::endl;
     std::cout << "Углы: A=" << square_triangle.get_angle('a') << " B=" << square_triangle.get_angle('b') << " C=" << square_triangle.get_angle('c') << std::endl;
-    std::cout << std::endl;
+    std::cout << std::endl;*/
 
     std::cout << "Равносторонний треугольник: " << std::endl;
-    std::cout << "Стороны: a=" << square_triangle.get_edge('a') << " b=" << square_triangle.get_edge('b') << " c=" << square_triangle.get_edge('c') << std::endl;
+    Triangle* par_equilateral_triangle = &equilateral_triangle;
+    par_equilateral_triangle->print_info();
+    /*std::cout << "Стороны: a=" << square_triangle.get_edge('a') << " b=" << square_triangle.get_edge('b') << " c=" << square_triangle.get_edge('c') << std::endl;
     std::cout << "Углы: A=" << square_triangle.get_angle('a') << " B=" << square_triangle.get_angle('b') << " C=" << square_triangle.get_angle('c') << std::endl;
-    std::cout << std::endl;
+    std::cout << std::endl;*/
 
     std::cout << "Четырёхугольник: " << std::endl;
-    std::cout << "Стороны: a=" << poly.get_edge('a') << " b=" << poly.get_edge('b') << " c=" << poly.get_edge('c') << " d=" << poly.get_edge('d') << std::endl;
+    Poly* par_poly = &poly;
+    par_poly->print_info();
+    /*std::cout << "Стороны: a=" << poly.get_edge('a') << " b=" << poly.get_edge('b') << " c=" << poly.get_edge('c') << " d=" << poly.get_edge('d') << std::endl;
     std::cout << "Углы: A=" << poly.get_angle('a') << " B=" << poly.get_angle('b') << " C=" << poly.get_angle('c') << " D=" << poly.get_angle('d') << std::endl;
-    std::cout << std::endl;
+    std::cout << std::endl;*/
 
     std::cout << "Прямоугольник: "<< std::endl;
-    std::cout << "Стороны: a=" << rectangle.get_edge('a') << " b=" << rectangle.get_edge('b') << " c=" << rectangle.get_edge('c') << " d=" << rectangle.get_edge('d') << std::endl;
+    Poly* par_rectangle = &rectangle;
+    par_rectangle->print_info();
+    /*std::cout << "Стороны: a=" << rectangle.get_edge('a') << " b=" << rectangle.get_edge('b') << " c=" << rectangle.get_edge('c') << " d=" << rectangle.get_edge('d') << std::endl;
     std::cout << "Углы: A=" << rectangle.get_angle('a') << " B=" << rectangle.get_angle('b') << " C=" << rectangle.get_angle('c') << " D=" << rectangle.get_angle('d') << std::endl;
-    std::cout << std::endl;
+    std::cout << std::endl;*/
 
     std::cout << "Квадрат: "<< std::endl;
-    std::cout << "Стороны: a=" << square.get_edge('a') << " b=" << square.get_edge('b') << " c=" << square.get_edge('c') << " d=" << square.get_edge('d') << std::endl;
+    Poly* par_square = &square;
+    par_square->print_info();
+    /*std::cout << "Стороны: a=" << square.get_edge('a') << " b=" << square.get_edge('b') << " c=" << square.get_edge('c') << " d=" << square.get_edge('d') << std::endl;
     std::cout << "Углы: A=" << square.get_angle('a') << " B=" << square.get_angle('b') << " C=" << square.get_angle('c') << " D=" << square.get_angle('d') << std::endl;
-    std::cout << std::endl;
+    std::cout << std::endl;*/
 
     std::cout << "Параллелограмм: " << std::endl;
-    std::cout << "Стороны: a=" << parallelogram.get_edge('a') << " b=" << parallelogram.get_edge('b') << " c=" << parallelogram.get_edge('c') << " d=" << parallelogram.get_edge('d') << std::endl;
+    Poly* par_parallelogram = &parallelogram;
+    par_parallelogram->print_info();
+    /*std::cout << "Стороны: a=" << parallelogram.get_edge('a') << " b=" << parallelogram.get_edge('b') << " c=" << parallelogram.get_edge('c') << " d=" << parallelogram.get_edge('d') << std::endl;
     std::cout << "Углы: A=" << parallelogram.get_angle('a') << " B=" << parallelogram.get_angle('b') << " C=" << parallelogram.get_angle('c') << " D=" << parallelogram.get_angle('d') << std::endl;
-    std::cout << std::endl;
+    std::cout << std::endl;*/
 
     std::cout << "Ромб: " << std::endl;
-    std::cout << "Стороны: a=" << rhombus.get_edge('a') << " b=" << rhombus.get_edge('b') << " c=" << rhombus.get_edge('c') << " d=" << rhombus.get_edge('d') << std::endl;
+    Poly* par_rhombus = &rhombus;
+    par_rhombus->print_info();
+    /*std::cout << "Стороны: a=" << rhombus.get_edge('a') << " b=" << rhombus.get_edge('b') << " c=" << rhombus.get_edge('c') << " d=" << rhombus.get_edge('d') << std::endl;
     std::cout << "Углы: A=" << rhombus.get_angle('a') << " B=" << rhombus.get_angle('b') << " C=" << rhombus.get_angle('c') << " D=" << rhombus.get_angle('d') << std::endl;
-    std::cout << std::endl;
+    std::cout << std::endl;*/
 }
