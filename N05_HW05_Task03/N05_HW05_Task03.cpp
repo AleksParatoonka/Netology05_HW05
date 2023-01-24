@@ -39,17 +39,13 @@ public:
         }
         std::cout << "У фигуры " << edges << " сторон" << std::endl;
     }
-    /*void print_info() {
-        std::cout << name << std::endl;
-        if (is_shape_ideal() == 1) {
-            std::cout << "Правильная" << std::endl;
-        }
-        else {
-            std::cout << "Неправильная" << std::endl;
-        }
-        std::cout << "У фигуры " << edges << " сторон" << std::endl;
-    }*/
 };
+
+void print_info(Shape* ptr)
+{
+    ptr->print_about();
+}
+
 class Poly :public Shape {
 protected:
     double edge_a;
@@ -123,12 +119,6 @@ public:
         std::cout << "Углы: A=" << angle_a << " B=" << angle_b << " C=" << angle_c << " D=" << angle_d << std::endl;
     }
 
-    /*void print_about1(Shape* ptr)  {
-        ptr->print_info();
-        std::cout << "Стороны: a= " << edge_a << " b=" << edge_b << " c=" << edge_c << " d=" << edge_d << std::endl;
-        std::cout << "Углы: A=" << angle_a << " B=" << angle_b << " C=" << angle_c << " D=" << angle_d << std::endl;
-    }*/
-
 };
 
 class Triangle :public Shape {
@@ -196,11 +186,7 @@ public:
         std::cout << "Стороны: a= " << edge_a << " b=" << edge_b << " c=" << edge_c << std::endl;
         std::cout << "Углы: A=" << angle_a << " B=" << angle_b << " C=" << angle_c << std::endl;
     }
-    /*void print_about1(Shape* ptr) {
-        ptr->print_info();
-        std::cout << "Стороны: a= " << edge_a << " b=" << edge_b << " c=" << edge_c << std::endl;
-        std::cout << "Углы: A=" << angle_a << " B=" << angle_b << " C=" << angle_c << std::endl;
-    }*/
+
 };
 class Square_Triangle :public Triangle {
 public:
@@ -285,30 +271,62 @@ int main()
     Square square(20);
     Rhombus rhombus(30, 30, 40);
 
-    shape.print_about();
+    
+    Shape* par_shape = &shape;
+    print_info(par_shape);
+    //shape.print_about();
     std::cout << std::endl;
-    triangle.print_about();
+
+    Triangle* par_triangle = &triangle;
+    print_info(par_triangle);    
+    //triangle.print_about();
     std::cout << std::endl;
-    square_triangle1.print_about();
+    
+    Square_Triangle* par_square_triangle1 = &square_triangle1;
+    print_info(par_square_triangle1);
+    //square_triangle1.print_about();
     std::cout << std::endl;
-    square_triangle2.print_about();
+
+    Square_Triangle* par_square_triangle2 = &square_triangle2;
+    print_info(par_square_triangle2);
+    //square_triangle2.print_about();
     std::cout << std::endl;
-    isosceles_triangle.print_about();
+
+    Isosceles_Triangle* par_isosceles_triangle = &isosceles_triangle;
+    print_info(par_isosceles_triangle);
+    //isosceles_triangle.print_about();
     std::cout << std::endl;
-    equilateral_triangle.print_about();
+
+    Equilateral_Triangle* par_equilateral_triangle = &equilateral_triangle;
+    print_info(par_equilateral_triangle);
+    //equilateral_triangle.print_about();
     std::cout << std::endl;
 
     std::cout << std::endl;
 
-    poly.print_about();
+    Poly* par_poly = &poly;
+    print_info(par_poly);
+    //poly.print_about();
     std::cout << std::endl;
-	rectangle.print_about();
+
+    Rect* par_rectangle = &rectangle;
+    print_info(par_rectangle);
+	//rectangle.print_about();
     std::cout << std::endl;
-    square.print_about();
+
+    Square* par_square = &square;
+    print_info(par_square);
+    //square.print_about();
     std::cout << std::endl;
-    parallelogram.print_about();
+
+    Parallelogram* par_parallelogram = &parallelogram;
+    print_info(par_parallelogram);
+    //parallelogram.print_about();
     std::cout << std::endl;
-    rhombus.print_about();
+        
+    Rhombus* par_rhombus = &rhombus;
+    print_info(par_rhombus);
+    //rhombus.print_about();
     std::cout << std::endl;
 
 }
